@@ -1,0 +1,85 @@
+# ==============================================================================
+# INFRASTRUCTURE MONOREPO — GLOBAL GITIGNORE
+# ==============================================================================
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs & Temporary Files
+*.log
+*.tmp
+*.bak
+/tmp/
+/scratch/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases & Local State
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+state/
+*.seen
+
+# Shell / Bash
+*.pid
+*.lock
+
+# Ansible
+*.retry
+
+# Kubernetes / Helm
+*.tgz
+charts/
+.helm/

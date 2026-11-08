@@ -1,0 +1,31 @@
+# Linux Git Ignore
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+*.bak
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+id_rsa*
+id_ed25519*
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/settings.json
+
+# Git AutoSync Daemon
+.autosync.pid
+.autosync.pause
+.checkpoints.json
+Automation/git-autosync/logs/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+

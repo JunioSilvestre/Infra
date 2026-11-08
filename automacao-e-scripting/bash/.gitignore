@@ -1,0 +1,45 @@
+# ==========================================
+# Bash & Shell Scripting - Git Ignore
+# ==========================================
+
+# Temporary & Swap files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+
+# Environment variables & Sensitive data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.pfx
+*.token
+credentials.json
+secrets.yaml
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Runtime logs
+logs/
+*.log
+*.pid
+
+# Test & Lint artifacts
+.bats-cache/
+.coverage
+report.xml
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/

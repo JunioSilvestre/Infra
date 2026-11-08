@@ -1,0 +1,48 @@
+# ==========================================
+# Terraform - Git Ignore Oficial e Seguro
+# ==========================================
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files (CRÍTICO: Pode conter senhas e segredos em texto puro)
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files with secrets (manter apenas *.example.tfvars)
+*.tfvars
+*.tfvars.json
+!example.tfvars
+!*.example.tfvars
+
+# Override files should not be committed
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include fake override files for testing
+!example_override.tf
+!example_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Infracost cache
+.infracost/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.swp
+*~

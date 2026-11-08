@@ -1,0 +1,17 @@
+# Observability & SRE Git Ignore
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+data/
+storage/
+.DS_Store
+.vscode/
+!.vscode/settings.json

@@ -1,0 +1,20 @@
+# CI-CD Git Ignore
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.yaml
+id_rsa*
+id_ed25519*
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/settings.json
