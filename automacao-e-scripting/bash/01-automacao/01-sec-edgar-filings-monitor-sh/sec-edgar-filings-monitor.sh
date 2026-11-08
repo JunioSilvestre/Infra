@@ -10,7 +10,7 @@
 #
 # REQUISITOS DA SEC:
 #   1. User-Agent identificável com e-mail real.
-#   2. No máximo 10 req/s por IP (aqui ~6,6 req/s via SEC_RATE_LIMIT_DELAY).
+#   2. No máximo 10 req/s por IP (aqui ~6,6 req/s via SEC_RATE_LIMIT_DELAY). teste
 # ==============================================================================
 
 set -euo pipefail
