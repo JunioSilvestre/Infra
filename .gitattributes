@@ -1,0 +1,56 @@
+# ==============================================================================
+# INFRASTRUCTURE MONOREPO — GITATTRIBUTES (MULTI-OS & LINE ENDING DISCIPLINE)
+# ==============================================================================
+# Garante que desenvolvedores em Windows, macOS e Linux trabalhem sem corromper
+# scripts shell ou arquivos de configuração com quebras de linha CRLF.
+# ==============================================================================
+
+# Padrão universal para arquivos de texto: LF (Linux/POSIX)
+* text=auto eol=lf
+
+# Shell scripts DEVEM ser sempre LF (CRLF quebra execução no Linux/macOS)
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Linguagens de Programação e IaC
+*.py text eol=lf
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+
+# Configuração e Marcação
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.conf text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+.editorconfig text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# Makefiles exigem indentação por TAB
+Makefile text eol=lf
+makefile text eol=lf
+
+# Arquivos Binários (nunca converter quebra de linha)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.tar binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.db binary
+*.sqlite binary
+*.duckdb binary
+*.so binary
+*.dylib binary
+*.dll binary
+*.exe binary

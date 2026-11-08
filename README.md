@@ -9,6 +9,8 @@ Repositório unificado de engenharia de infraestrutura, automação de sistemas,
 ```text
 infra/
 ├── README.md                          # Documentação principal
+├── Makefile                           # Automações de desenvolvimento (setup, lint, fmt)
+├── .gitattributes                     # Normalização de quebras de linha (LF) Multi-SO
 ├── .gitignore                         # Regras de exclusão global
 ├── .editorconfig                      # Padronização de formatação
 ├── .pre-commit-config.yaml            # Linters e checagens de qualidade
@@ -34,7 +36,7 @@ infra/
 │   └── 05-sre/                        # SLI/SLO, error budgets e runbooks
 │
 ├── automacao-e-scripting/             # Automação de Sistemas
-│   ├── bash/                          # Shell scripting corporativo
+│   ├── bash/                          # Shell scripting corporativo (ex: sec-edgar-monitor)
 │   └── python/                        # CLI tooling, cloud SDKs e DevOps scripts
 │
 └── host-provisioning/                 # Provisionamento de Hosts Locais
@@ -45,26 +47,64 @@ infra/
 
 ---
 
-## 🛠️ Tecnologias & Ferramental
+## 💻 Guia de Configuração por Sistema Operacional (Multi-Dev)
 
-| Domínio | Ferramentas Chave |
-|---|---|
-| **IaC & Nuvem** | Terraform, OpenTofu, AWS, Azure, GCP |
-| **Sistemas & Containers** | Linux (Ubuntu/Debian, RHEL), Docker, Kubernetes, Helm |
-| **DevOps & CI/CD** | GitHub Actions, GitLab CI, ArgoCD, Flux |
-| **Observabilidade & SRE** | Prometheus, Grafana, OpenTelemetry, Loki, Jaeger |
-| **Automação** | Bash puro (POSIX/Bash 4+), Python (Ruff, Poetry/UV) |
+Este repositório foi projetado com `.gitattributes` e `.editorconfig` para permitir colaboração perfeita entre desenvolvedores em **Linux**, **macOS** e **Windows**.
+
+### 🐧 Linux (Ubuntu / Debian / RHEL / Fedora)
+```bash
+# 1. Dependências recomendadas
+sudo apt update && sudo apt install -y git curl jq make python3-pip shellcheck
+
+# 2. Clonar e configurar
+git clone https://github.com/JunioSilvestre/Infra.git
+cd Infra
+make setup
+```
+
+### 🍏 macOS (Apple Silicon & Intel)
+```bash
+# 1. Dependências via Homebrew
+brew install git curl jq make pre-commit shellcheck terraform
+
+# 2. Clonar e configurar
+git clone https://github.com/JunioSilvestre/Infra.git
+cd Infra
+make setup
+```
+
+### 🪟 Windows (via WSL2 — Recomendado)
+Em ambientes corporativos de infraestrutura, desenvolvedores Windows devem usar o **WSL2 (Ubuntu)** para evitar incompatibilidades de kernel, permissões POSIX e scripts bash:
+1. Abra o terminal do WSL2 (Ubuntu).
+2. Configure o Git para preservar `LF`:
+   ```bash
+   git config --global core.autocrlf input
+   ```
+3. Clone o projeto dentro do filesystem do Linux (ex: `~/Projetos/Infra`), **não** dentro de `/mnt/c/`, para máxima performance de I/O e compatibilidade com permissões Unix:
+   ```bash
+   git clone https://github.com/JunioSilvestre/Infra.git
+   cd Infra
+   make setup
+   ```
 
 ---
 
-## 🚀 Como Contribuir e Padrões de Código
+## 🚀 Comandos Rápidos do Makefile
 
-1. Instale o `pre-commit`:
-   ```bash
-   pip install pre-commit
-   pre-commit install
-   ```
-2. Utilize mensagens de commit no padrão **Conventional Commits**:
-   - `feat(iac): add azure aks module`
-   - `fix(bash): resolve dns timeout handling`
-   - `docs(sre): update slo error budget policy`
+| Comando | Descrição |
+|---|---|
+| `make help` | Exibe todos os comandos disponíveis |
+| `make setup` | Configura hooks de pre-commit e permissões locais |
+| `make lint` | Executa todos os linters (ShellCheck, YAML, Python) |
+| `make fmt` | Formata automaticamente Terraform e Python |
+| `make test-sec-monitor` | Executa validação de sintaxe e ajuda do monitor SEC EDGAR |
+
+---
+
+## 📋 Convenção de Commits
+
+Utilizamos o padrão **Conventional Commits**:
+- `feat(iac): add azure aks module`
+- `fix(bash): resolve dns timeout handling`
+- `docs(sre): update slo error budget policy`
+- `refactor(ci-cd): optimize gitlab-ci runner stages`
